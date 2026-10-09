@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.First_lab" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#E07A5F</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#F4F1DE</item>
+        <item name="colorOnPrimaryContainer">#1C1B1F</item>
+        <item name="colorSecondary">#3D5A40</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="android:colorBackground">#F4F1DE</item>
+        <item name="colorOnBackground">#1C1B1F</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#1C1B1F</item>
+        <item name="colorSurfaceVariant">#E8E8E8</item>
+        <item name="colorOnSurfaceVariant">#5F5F5F</item>
+    </style>
+</resources>

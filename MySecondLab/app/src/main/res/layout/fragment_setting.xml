@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F1DE">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F4F1DE"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:title="Настройки"
+            app:titleTextColor="#1C1B1F" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ===================== КОНТЕНТ ===================== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ========== РАЗДЕЛ 1: Персональные данные ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Персональные данные"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1C1B1F"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Имя"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Возраст"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggle_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btn_man"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mr."/>
+
+                <Button
+                    android:id="@+id/btn_woman"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mrs."/>
+
+                <Button
+                    android:id="@+id/btn_not_defined"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <Button
+                android:id="@+id/btn_save_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сохранить данные"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- ========== РАЗДЕЛ 2: Оформление ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Оформление"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1C1B1F"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Тёмная тема"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Размер шрифта"
+                android:textSize="14sp"
+                android:textColor="#5F5F5F"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_font"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:valueFrom="12"
+                android:valueTo="24"
+                android:stepSize="1"
+                android:value="16"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- ========== РАЗДЕЛ 3: Резервное копирование ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Резервное копирование"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1C1B1F"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_backup_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Резервная копия не найдена"
+                android:textSize="14sp"
+                android:textColor="#5F5F5F"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btn_create_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Создать резервную копию"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_delete_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Удалить резервную копию"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_restore_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Восстановить из копии"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- ========== Кнопка возврата ========== -->
+            <Button
+                android:id="@+id/btn_back_to_recipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вернуться к рецептам"
+                style="@style/Widget.Material3.Button.TextButton"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

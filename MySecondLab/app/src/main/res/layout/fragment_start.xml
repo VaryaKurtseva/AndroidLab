@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F4F1DE">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+
+        <ImageView
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/logo"
+            android:contentDescription="App logo"
+            app:tint="#E07A5F"/>
+
+        <!-- Название приложения -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Culinary Book"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1C1B1F"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Рецепты морепродуктов со всего мира"
+            android:textSize="14sp"
+            android:textColor="#5F5F5F"
+            android:gravity="center"/>
+
+
+        <!-- ===================== СОСТОЯНИЕ 1: ПЕРВЫЙ ВХОД ===================== -->
+
+        <LinearLayout
+            android:id="@+id/group_first_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:visibility="visible">
+
+            <!-- Email -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email or login"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Пароль -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Пароль"
+                app:passwordToggleEnabled="true"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Чекбокс "Запомнить меня" -->
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_remember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remember me on this device"
+                android:textSize="13sp"
+                android:checked="true"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Кнопка "Log In" -->
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log In"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Кнопка "Register" -->
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        </LinearLayout>
+
+
+        <!-- ===================== СОСТОЯНИЕ 2: ПОВТОРНЫЙ ВХОД ===================== -->
+
+        <LinearLayout
+            android:id="@+id/group_returning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+            <!-- Карточка с аватаром и приветствием -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:padding="24dp">
+
+                    <!-- Аватар (круглая картинка) -->
+                    <ImageView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@mipmap/ic_launcher"
+                        android:contentDescription="Avatar"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Приветствие -->
+                    <TextView
+                        android:id="@+id/tv_greeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome back, Marina!"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#1C1B1F"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Логин -->
+                    <TextView
+                        android:id="@+id/tv_login_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="marina@example.com"
+                        android:textSize="13sp"
+                        android:textColor="#5F5F5F"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- Бейдж "Login remembered" -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓  Login remembered on this device"
+                        android:textSize="12sp"
+                        android:textColor="#3D5A40"
+                        android:background="#E8F0E8"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Кнопка "Go to Recipes" -->
+            <Button
+                android:id="@+id/btn_go_to_recipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go to Recipes"
+                style="@style/Widget.Material3.Button"/>
+
+        </LinearLayout>
+
+
+        <!-- ===================== ФУТЕР ===================== -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Your recipe box stays private and synced."
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>

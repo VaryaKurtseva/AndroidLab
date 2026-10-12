@@ -14,7 +14,6 @@
         android:gravity="center_horizontal"
         android:padding="24dp">
 
-
         <ImageView
             android:layout_width="88dp"
             android:layout_height="88dp"
@@ -33,7 +32,6 @@
             android:textStyle="bold"
             android:textColor="#1C1B1F"/>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +40,6 @@
             android:textSize="14sp"
             android:textColor="#5F5F5F"
             android:gravity="center"/>
-
 
         <!-- ===================== СОСТОЯНИЕ 1: ПЕРВЫЙ ВХОД ===================== -->
 
@@ -74,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Пароль"
-                app:passwordToggleEnabled="true"
+                app:endIconMode="password_toggle"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="8dp">
 
@@ -113,7 +110,6 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"/>
 
         </LinearLayout>
-
 
         <!-- ===================== СОСТОЯНИЕ 2: ПОВТОРНЫЙ ВХОД ===================== -->
 
@@ -194,7 +190,6 @@
                 style="@style/Widget.Material3.Button"/>
 
         </LinearLayout>
-
 
         <!-- ===================== ФУТЕР ===================== -->
 

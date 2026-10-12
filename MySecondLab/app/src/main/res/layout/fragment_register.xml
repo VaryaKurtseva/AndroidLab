@@ -18,8 +18,7 @@
             android:text="Create your account"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp"
-            />
+            android:layout_marginBottom="4dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,6 +27,7 @@
             android:textSize="14sp"
             android:layout_marginBottom="24dp"/>
 
+        <!-- Email -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,11 +42,12 @@
                 android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Пароль -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            app:passwordToggleEnabled="true"
+            app:endIconMode="password_toggle"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="12dp">
 
@@ -57,11 +58,12 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Подтверждение пароля -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm password"
-            app:passwordToggleEnabled="true"
+            app:endIconMode="password_toggle"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="12dp">
 
@@ -72,6 +74,7 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Имя -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,6 +89,7 @@
                 android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Пол -->
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/toggle_button"
             android:layout_width="match_parent"

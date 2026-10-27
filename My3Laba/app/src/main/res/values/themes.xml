@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.My3Laba" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#E07A5F</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#3D5A40</item>
+        <item name="colorOnPrimaryContainer">#FFFFFF</item>
+        <item name="colorSecondary">#3D5A40</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+    </style>
+</resources>

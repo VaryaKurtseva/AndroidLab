@@ -2,6 +2,7 @@ package com.example.mysecondlab
 
 import android.os.Bundle
 import android.util.Log
+import com.example.mysecondlab.databinding.ActivityMainBinding
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.example.mysecondlab.fragments.ContentFragment
@@ -15,15 +16,18 @@ class MainActivity : AppCompatActivity() {
         private const val TAG ="MainActivity"
         private const val BACK_STACK = "MainBackStack"
     }
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // в 3 не должно быть
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         logLifecycle("onCreate")
         // Показываем стартовый фрагмент только при первом создании
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, StartFragment(), "StartFragment")
+                .replace(binding.container.id, StartFragment(), "StartFragment")
                 .commit()
         }
 
@@ -37,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         logLifecycle("navigateToContent")
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, ContentFragment(), "ContentFragment")
+            .replace(binding.container.id, ContentFragment(), "ContentFragment")
             .commit()
 
     }
@@ -45,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     fun navigateToRegister() {
         logLifecycle("navigateToRegistration")
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, RegistrationFragment(), "RegistrationFragment")
+            .replace(binding.container.id, RegistrationFragment(), "RegistrationFragment")
             .addToBackStack(BACK_STACK)
             .commit()
     }
@@ -57,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         // Очищаем back stack: оставляем только Content → Settings
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, SettingFragment(), "SettingFragment")
+            .replace(binding.container.id, SettingFragment(), "SettingFragment")
             .addToBackStack(BACK_STACK)   // ← теперь назад ведёт к ContentFragment
             .commit()
     }
@@ -68,5 +72,6 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() { super.onStop(); logLifecycle("onStop") }
     override fun onDestroy() { super.onDestroy(); logLifecycle("onDestroy") }
     override fun onRestart() { super.onRestart(); logLifecycle("onRestart") }
+
 }
 

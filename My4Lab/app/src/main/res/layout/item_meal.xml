@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ===================== КАРТИНКА БЛЮДА ===================== -->
+        <ImageView
+            android:id="@+id/iv_meal_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="Meal image"
+            android:background="#E8E8E8" />
+
+        <!-- ===================== ИНФОРМАЦИЯ ===================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Название блюда -->
+            <TextView
+                android:id="@+id/tv_meal_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seafood Paella"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#1C1B1F"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <!-- Кухня · Категория -->
+            <TextView
+                android:id="@+id/tv_meal_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Spanish · Seafood"
+                android:textSize="12sp"
+                android:textColor="#5F5F5F"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Ряд: рейтинг + время -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <!-- Рейтинг -->
+                <TextView
+                    android:id="@+id/tv_meal_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★ 4.9"
+                    android:textSize="12sp"
+                    android:textColor="#E07A5F"
+                    android:textStyle="bold" />
+
+                <!-- Время приготовления -->
+                <TextView
+                    android:id="@+id/tv_meal_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="⏱ 45 min"
+                    android:textSize="12sp"
+                    android:textColor="#5F5F5F" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,30 +1,36 @@
-package com.example.my3laba
+package com.example.my4lab
 
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
-import com.example.my3laba.extensions.debugging
+import com.example.my4lab.databinding.ActivityMainBinding
+import com.example.my4lab.databinding.FragmentStartBinding
+import com.example.my4lab.extensions.debugging
 
-import com.example.my3laba.fragments.ContentFragment
-import com.example.my3laba.fragments.StartFragment
+import com.example.my4lab.fragments.ContentFragment
+import com.example.my4lab.fragments.RegistrationFragment
+import com.example.my4lab.fragments.StartFragment
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     companion object {
         private const val TAG ="MainActivity"
         private const val BACK_STACK = "MainBackStack"
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // в 3 не должно быть
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         debugging("onCreate")
         // Показываем стартовый фрагмент только при первом создании
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, StartFragment(), "StartFragment")
+                .replace(binding.container.id, StartFragment(), "StartFragment")
                 .commit()
         }
 
@@ -33,9 +39,17 @@ class MainActivity : AppCompatActivity() {
         debugging("navigateToContent")
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, ContentFragment(), "ContentFragment")
+            .replace(binding.container.id, ContentFragment(), "ContentFragment")
             .commit()
 
+    }
+
+    fun navigateToRegister() {
+        debugging("navigateToRegistration")
+        supportFragmentManager.beginTransaction()
+            .replace(binding.container.id, RegistrationFragment(), "RegistrationFragment")
+            .addToBackStack(BACK_STACK)
+            .commit()
     }
 
 

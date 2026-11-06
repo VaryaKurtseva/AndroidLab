@@ -1,4 +1,4 @@
-package com.example.my3laba.model
+package com.example.my4lab.model
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.my3laba.R
+import com.example.my4lab.R
+import com.example.my4lab.databinding.ActivityMainBinding
+import com.example.my4lab.databinding.FragmentStartBinding
+import com.example.my4lab.databinding.ItemMealBinding
 
 
 class MealAdapter(private val onMealClick: (Meal) -> Unit)
@@ -14,15 +17,18 @@ class MealAdapter(private val onMealClick: (Meal) -> Unit)
 
     private var meals: List<Meal> = emptyList()
 
+
     fun submitList(newList: List<Meal>) {
         meals = newList
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_meal, parent, false)
-        return MealViewHolder(view)
+        val binding = ItemMealBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false)
+        return MealViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
@@ -31,19 +37,16 @@ class MealAdapter(private val onMealClick: (Meal) -> Unit)
 
     override fun getItemCount(): Int = meals.size
 
-    class MealViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val ivImage: ImageView = view.findViewById(R.id.iv_meal_image)
-        private val tvName: TextView = view.findViewById(R.id.tv_meal_name)
-        private val tvArea: TextView = view.findViewById(R.id.tv_meal_area)
-        private val tvRating: TextView = view.findViewById(R.id.tv_meal_rating)
-        private val tvTime: TextView = view.findViewById(R.id.tv_meal_time)
+    class MealViewHolder(private  val binding: ItemMealBinding) : RecyclerView.ViewHolder(view) {
+
+
 
         fun bind(meal: Meal, onClick: (Meal) -> Unit) {
-            ivImage.setImageResource(meal.imageRes)
-            tvName.text = meal.name
-            tvArea.text = "${meal.area ?: "Unknown"} · ${meal.category}"
-            tvRating.text = "${(meal.cookingTime % 10)}"
-            tvTime.text = "${meal.cookingTime} min"
+
+            binding.tvMealName.text = meal.name
+            binding.tvMealArea.text = "${meal.area ?: "Unknown"} · ${meal.category}"
+            binding.tvMealRating.text = "${(meal.cookingTime % 10)}"
+            binding.tvMealTime.text = "${meal.cookingTime} min"
 
             // Клик по всей карточке
             itemView.setOnClickListener { onClick(meal) }

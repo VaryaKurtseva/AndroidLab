@@ -1,0 +1,14 @@
+package com.example.my5lab.extensions
+
+
+import android.util.Log
+import androidx.fragment.app.Fragment
+import com.example.myapplication.BuildConfig
+
+//import com.example.my5lab.BuildConfig
+
+
+
+fun Fragment.debugging(message: String) {
+    if (BuildConfig.DEBUG) Log.d("${TAG}_${javaClass.simpleName}", message)
+}

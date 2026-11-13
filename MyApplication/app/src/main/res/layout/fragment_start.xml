@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F4F1DE">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- Логотип -->
+        <ImageView
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="32dp"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="App logo"
+            app:tint="#E07A5F"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Culinary Book"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1C1B1F"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Рецепты морепродуктов со всего мира"
+            android:textSize="14sp"
+            android:textColor="#5F5F5F"
+            android:gravity="center"/>
+
+        <!-- СОСТОЯНИЕ 1: ПЕРВЫЙ ВХОД -->
+        <LinearLayout
+            android:id="@+id/group_first_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:visibility="visible">
+
+            <!-- Email -->
+            <EditText
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email or login"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Пароль -->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Пароль"
+                android:inputType="textPassword"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Чекбокс -->
+            <CheckBox
+                android:id="@+id/cb_remember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remember me on this device"
+                android:textSize="13sp"
+                android:checked="true"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log In"
+                android:layout_marginBottom="12dp"/>
+
+
+
+        </LinearLayout>
+
+        <!-- СОСТОЯНИЕ 2: ПОВТОРНЫЙ ВХОД -->
+        <LinearLayout
+            android:id="@+id/group_returning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+            <!-- Карточка (заменена на LinearLayout с фоном) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="24dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:contentDescription="Avatar"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:id="@+id/tv_greeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome back, Marina!"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#1C1B1F"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/tv_login_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="marina@example.com"
+                    android:textSize="13sp"
+                    android:textColor="#5F5F5F"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Login remembered on this device"
+                    android:textSize="12sp"
+                    android:textColor="#3D5A40"
+                    android:background="#E8F0E8"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_go_to_recipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Go to Recipes"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Your recipe box stays private and synced."
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>

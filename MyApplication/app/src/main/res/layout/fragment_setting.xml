@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F1DE">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#F4F1DE"
+        app:title="Настройки"
+        app:titleTextColor="#1C1B1F" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Персональные данные"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Имя"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/et_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Возраст"
+                android:inputType="number"
+                android:layout_marginBottom="12dp"/>
+
+            <RadioGroup
+                android:id="@+id/toggle_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+                <RadioButton
+                    android:id="@+id/btn_man"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mr."/>
+                <RadioButton
+                    android:id="@+id/btn_woman"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mrs."/>
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_save_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сохранить данные"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Оформление"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <Switch
+                android:id="@+id/switch_theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Тёмная тема"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Размер шрифта"
+                android:layout_marginBottom="8dp"/>
+
+            <SeekBar
+                android:id="@+id/slider_font"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="12"
+                android:progress="4"
+                android:layout_marginBottom="24dp"/>
+
+            <Switch
+                android:id="@+id/switchLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Всегда использовать русский язык" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Резервное копирование"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_backup_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Резервная копия не найдена"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btn_create_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Создать резервную копию"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_delete_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Удалить резервную копию"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btn_restore_backup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Восстановить из копии"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/btn_back_to_recipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вернуться к рецептам"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
